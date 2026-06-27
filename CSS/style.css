@@ -70,7 +70,7 @@ ul { list-style: none; }
     z-index: 1000;
     background: var(--clr-surface);
     border-bottom: 1px solid var(--clr-border);
-
+    
 }
 
 .header-inner{
@@ -1257,7 +1257,7 @@ justify-content:center;
 }
 
 @media (max-width: 768px) {
-  /* .hamburger {
+  .hamburger {
         display: flex !important;
         align-items: center;
         justify-content: center;
@@ -1287,23 +1287,8 @@ justify-content:center;
         opacity: 1;
         pointer-events: all;
         visibility: visible;
-    } */
-.header-inner {
-    height: 64px;
-    padding: 0 15px;
-    display: grid;
-    grid-template-columns: 40px 1fr auto;
-    align-items: center;
-    position: relative;
-  }
+    }
 
-  .logo {
-    justify-self: center;
-  }
-
-  .header-actions {
-    justify-self: end;
-  }
   .modal-content {
     grid-template-columns: 1fr;
   }
