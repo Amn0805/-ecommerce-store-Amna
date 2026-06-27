@@ -1,0 +1,192 @@
+/* ============================================
+   SHOPWAVE — Dark Mode Overrides
+   Applied via class "dark" on <body>
+   ============================================ */
+
+body.dark {
+  --clr-bg: #0e0f1f;
+  --clr-surface: #161829;
+  --clr-surface-alt: #1e2037;
+  --clr-border: #2a2d4a;
+  --clr-text: #f0f1f8;
+  --clr-text-muted: #8b90b8;
+  --clr-text-light: #5a5f82;
+  --clr-navy: #c8caf0;
+  --clr-navy-light: #e0e2ff;
+  --clr-shadow: rgba(0, 0, 0, 0.3);
+  --clr-shadow-md: rgba(0, 0, 0, 0.5);
+}
+
+/* Header stays dark-surface in dark mode */
+body.dark .header {
+  background: var(--clr-surface);
+  border-bottom-color: var(--clr-border);
+}
+
+/* Logo in dark mode */
+body.dark .logo-wave { color: var(--clr-text); }
+
+/* Hero stays dark navy regardless */
+body.dark .hero {
+  background: #09091a;
+}
+
+/* Product cards */
+body.dark .product-card {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+}
+body.dark .card-img-wrap {
+  background: var(--clr-surface-alt);
+}
+
+/* Buttons & inputs */
+body.dark .search-input,
+body.dark .sort-select {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border-color: var(--clr-border);
+}
+body.dark .search-input:focus,
+body.dark .sort-select:focus {
+  border-color: var(--clr-accent);
+}
+body.dark .cat-btn {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+  color: var(--clr-text-muted);
+}
+body.dark .cat-btn:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+body.dark .cat-btn.active {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: #fff;
+}
+
+/* Cart drawer */
+body.dark .cart-drawer {
+  background: var(--clr-surface);
+}
+body.dark .cart-item {
+  background: var(--clr-surface-alt);
+  border-color: var(--clr-border);
+}
+body.dark .cart-item-img-wrap {
+  background: var(--clr-surface);
+}
+body.dark .cart-qty-btn {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+}
+
+/* Modals */
+body.dark .modal-box {
+  background: var(--clr-surface);
+}
+body.dark .modal-img-col {
+  background: var(--clr-surface-alt);
+}
+body.dark .modal-close {
+  background: var(--clr-surface-alt);
+}
+
+/* Order items */
+body.dark .order-items {
+  border-color: var(--clr-border);
+}
+body.dark .order-item {
+  border-bottom-color: var(--clr-border);
+}
+
+/* Wishlist items */
+body.dark .wishlist-item {
+  border-color: var(--clr-border);
+}
+body.dark .wishlist-item-img-wrap {
+  background: var(--clr-surface-alt);
+}
+
+/* Compare table */
+body.dark .compare-table th,
+body.dark .compare-table td {
+  border-color: var(--clr-border);
+}
+body.dark .compare-table th {
+  background: var(--clr-surface-alt);
+}
+
+/* Navbar mobile */
+body.dark .nav {
+  background: var(--clr-surface);
+  border-bottom-color: var(--clr-border);
+}
+
+/* Load more */
+body.dark .load-more-btn {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+  color: var(--clr-text);
+}
+
+/* Qty control */
+body.dark .qty-control {
+  border-color: var(--clr-border);
+}
+body.dark .qty-btn {
+  background: var(--clr-surface-alt);
+}
+body.dark .qty-display {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border-color: var(--clr-border);
+}
+
+/* Wishlist heart on card */
+body.dark .wishlist-heart-btn {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+  color: var(--clr-text-muted);
+}
+
+/* Compare check btn */
+body.dark .compare-check-btn {
+  background: var(--clr-surface);
+  border-color: var(--clr-border);
+}
+
+/* Nav in dark mode */
+body.dark .nav-link:hover,
+body.dark .nav-link.active {
+  background: var(--clr-surface-alt);
+  color: var(--clr-text);
+}
+
+/* Theme toggle & cart button */
+body.dark .theme-toggle,
+body.dark .cart-btn {
+  background: var(--clr-surface-alt);
+  color: var(--clr-text);
+}
+
+/* Card price override for dark mode readability */
+body.dark .card-price,
+body.dark .modal-price {
+  color: #c8caf0;
+}
+
+/* Hamburger button */
+body.dark .hamburger {
+  background: var(--clr-surface-alt);
+  color: var(--clr-text);
+}
+
+/* Prevent theme flash handled by inline script in head */
+
+/* Apply dark bg immediately to html element (before body renders) */
+html.dark {
+  background: #0e0f1f;
+  color-scheme: dark;
+}

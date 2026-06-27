@@ -1,0 +1,94 @@
+/* ============================================
+   SHOPWAVE — Skeleton Loading Styles
+   ============================================ */
+
+@keyframes shimmer {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--clr-surface-alt) 25%,
+    var(--clr-border) 50%,
+    var(--clr-surface-alt) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}
+
+/* Skeleton card mimics real product card */
+.skeleton-card {
+  background: var(--clr-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-img {
+  height: 220px;
+  width: 100%;
+}
+
+.skeleton-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeleton-badge {
+  height: 20px;
+  width: 70px;
+  border-radius: 99px;
+}
+
+.skeleton-title-1 {
+  height: 14px;
+  width: 100%;
+}
+
+.skeleton-title-2 {
+  height: 14px;
+  width: 72%;
+}
+
+.skeleton-rating {
+  height: 12px;
+  width: 90px;
+}
+
+.skeleton-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.skeleton-price {
+  height: 22px;
+  width: 60px;
+}
+
+.skeleton-btn {
+  height: 34px;
+  width: 100px;
+  border-radius: var(--radius-sm);
+}
+
+/* Dark mode shimmer adjustment */
+body.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    #1e2037 25%,
+    #2a2d4a 50%,
+    #1e2037 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite linear;
+}

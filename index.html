@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopWave — Modern E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="CSS/skeleton.css" />
+  <link rel="stylesheet" href="CSS/dark-mode.css" />
+ <script src="JS/theme-init.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a href="#" class="logo">
+        <span class="logo-wave">Shop</span><span class="logo-accent">Wave</span>
+      </a>
+      <nav class="nav" id="navMenu">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#" class="nav-link" id="wishlistNavBtn">
+          <i class="fa-solid fa-heart"></i> Wishlist
+          <span class="wishlist-count-badge" id="wishlistNavCount">0</span>
+        </a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">New arrivals every week</p>
+    <h1 class="hero-title">
+      Everything you need,<br />
+      <em>one place to find it.</em>
+    </h1>
+
+    <p class="hero-sub">
+      Explore 20 handpicked products across electronics,
+      jewellery, clothing, and more.
+    </p>
+
+    <a href="#products" class="hero-cta">
+      Shop Now
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- New Hero Image -->
+  <div class="hero-image">
+    <div class="hero-glow"></div>
+    <img src="./images/hero.png" alt="Shopping Girl">
+  </div>
+
+</section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <!-- Controls -->
+      <div class="controls">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search products…" autocomplete="off" />
+          <button class="search-clear" id="searchClear"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sort-wrap">
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating-desc">Rating: Best First</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Buttons -->
+      <div class="category-filters" id="categoryFilters">
+        <!-- Dynamically generated -->
+      </div>
+
+      <!-- Product Count + Clear -->
+      <div class="results-bar">
+        <p class="product-count" id="productCount">Showing 0 products</p>
+        <button class="clear-filters-btn" id="clearFiltersBtn">
+          <i class="fa-solid fa-rotate-left"></i> Clear All Filters
+        </button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid">
+        <!-- Products or skeletons rendered here -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3>No products found</h3>
+        <p>Try adjusting your search, category, or sort filter.</p>
+        <button class="btn-primary" id="emptyStateClear">Reset Filters</button>
+      </div>
+
+      <!-- Error State -->
+      <div class="error-state" id="errorState" >
+        <div class="error-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3>Failed to load products</h3>
+        <p>Something went wrong while fetching the products. Please try again.</p>
+        <button class="btn-primary" id="retryBtn"><i class="fa-solid fa-rotate-right"></i> Try Again</button>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-wrap" id="loadMoreWrap">
+        <button class="load-more-btn" id="loadMoreBtn">Load More <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body" id="modalBody">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="orderModal" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box--order">
+      <button class="modal-close" id="orderModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="order-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h2 class="order-title">Order Confirmed!</h2>
+      <p class="order-sub">Thank you for shopping with ShopWave.</p>
+      <div class="order-items" id="orderItems"></div>
+      <div class="order-total" id="orderTotal"></div>
+      <button class="btn-primary order-done-btn" id="orderDoneBtn">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- WISHLIST MODAL -->
+  <div class="modal-overlay" id="wishlistModal" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box--wishlist">
+      <button class="modal-close" id="wishlistModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <h2 class="wishlist-title"><i class="fa-solid fa-heart"></i> My Wishlist</h2>
+      <div class="wishlist-items" id="wishlistItems"></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2 class="cart-title"><i class="fa-solid fa-bag-shopping"></i> Your Cart</h2>
+      <button class="cart-drawer-close" id="cartClose" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Filled by JS -->
+    </div>
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+      <p>Your cart is empty</p>
+      <button class="btn-outline" id="continueShopping">Continue Shopping</button>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="btn-primary checkout-btn" id="checkoutBtn">
+        <i class="fa-solid fa-lock"></i> Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Comparison Bar -->
+  <div class="compare-bar" id="compareBar">
+    <div class="compare-bar-inner">
+      <span class="compare-label"><i class="fa-solid fa-code-compare"></i> Compare: <span id="compareCount">0</span>/3 selected</span>
+      <button class="btn-primary compare-now-btn" id="compareNowBtn">Compare Now</button>
+      <button class="compare-clear-btn" id="compareClearBtn">Clear</button>
+    </div>
+  </div>
+
+  <!-- Comparison Modal -->
+  <div class="modal-overlay" id="compareModal" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box--compare">
+      <button class="modal-close" id="compareModalClose"><i class="fa-solid fa-xmark"></i></button>
+      <h2 class="compare-title">Product Comparison</h2>
+      <div class="compare-table-wrap" id="compareTableWrap"></div>
+    </div>
+  </div>
+
+ <script src="JS/api.js"></script>
+  <script src="JS/ui.js"></script>
+  <script src="JS/filters.js"></script>
+  <script src="JS/cart.js"></script>
+  <script src="JS/product.js"></script>
+  <script src="JS/app.js"></script>
+</body>
+</html>
