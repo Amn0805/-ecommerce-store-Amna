@@ -8,7 +8,7 @@ A fully functional, responsive e-commerce product store built with pure HTML, CS
 👉 [View Live Demo](https://amn0805.github.io/-ecommerce-store-Amna/)
 
 ## 🎥 Video Walkthrough
-📽️ [Watch on YouTube](YOUR_VIDEO_LINK_HERE) 
+📽️ [Watch on YouTube](https://youtu.be/fLfB0p0wL1M) 
 
 ---
 
